@@ -2,7 +2,7 @@
 title: 待充电的胖子
 SEOTitle: 待充电的胖子
 header-img: img/post-bg-desk.jpg
-email: luoyuant@163.com
+email: dopa.wu@gmail.com
 description: "Every failure is leading towards success."
 keyword: "iOS, Apple, iPhone"
 url: "https://dopawoo.github.io"          # your host, for absolute URL
@@ -57,16 +57,16 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: luoyuant
+# disqus_username: dopawoo
 
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: cc577cec388a862a3ea4                            #生成的clientID
   clientSecret: 2603553e16e16bd336a08705191b2ec8a46d08e7    #生成的clientSecret
-  repo: luoyuant.github.io    #仓库名称
-  owner: luoyuant    #github用户名
-  admin: luoyuant
+  repo: dopawoo.github.io    #仓库名称
+  owner: dopawoo    #github用户名
+  admin: dopawoo
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 

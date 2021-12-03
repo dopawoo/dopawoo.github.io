@@ -1,10 +1,10 @@
-## WPJsonToFile
+## JsonToFile
 
-WPJsonToFile 可以根据JSON生成相应的Model文件。
+JsonToFile 可以根据JSON生成相应的Model文件。
 
 
 
-[立刻在线试一试](https://luoyuant.github.io/pages/tools-page/WPJsonToFile/index.html)
+[立刻在线试一试](https://dopawoo.github.io/pages/tools-page/JsonToFile/index.html)
 
 
 
@@ -45,11 +45,11 @@ WPJsonToFile 可以根据JSON生成相应的Model文件。
 
 #### 静态图
 
-![示例图片](https://github.com/luoyuant/WPJsonToFile/blob/master/readme-img/example-static.png)
+![示例图片](https://github.com/dopawoo/JsonToFile/blob/master/readme-img/example-static.png)
 
 #### 动态图
 
-![示例图片](https://github.com/luoyuant/WPJsonToFile/blob/master/readme-img/example.gif)
+![示例图片](https://github.com/dopawoo/JsonToFile/blob/master/readme-img/example.gif)
 
 ## 支持语言
 
@@ -108,7 +108,7 @@ WPJsonToFile 可以根据JSON生成相应的Model文件。
 
 3.修改json-parse.js里边WPFileInfoMetaHandler里边的两个分发方法，修改WPCreateFileContentForAllClass里边的分发方法。
 
-![修改json-parse.js里边的三个方法](https://github.com/luoyuant/WPJsonToFile/blob/master/readme-img/json-parse-modify.png)
+![修改json-parse.js里边的三个方法](https://github.com/dopawoo/JsonToFile/blob/master/readme-img/json-parse-modify.png)
 
 4.修改index.html里边的langues
 
@@ -116,5 +116,5 @@ WPJsonToFile 可以根据JSON生成相应的Model文件。
 
 **注意langues数组语言的顺序要跟language-config.js里边LanguesConfigArray数组顺序对应。**
 
-![修改index.html](https://github.com/luoyuant/WPJsonToFile/blob/master/readme-img/index-html-modify.png)
+![修改index.html](https://github.com/dopawoo/JsonToFile/blob/master/readme-img/index-html-modify.png)
 
