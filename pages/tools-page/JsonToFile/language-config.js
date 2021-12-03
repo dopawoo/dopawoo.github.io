@@ -28,7 +28,7 @@ LanguesConfigArray = [
 			// array: "[]"
 		},
 		setGenericOptionals: false, //是否将容器泛型设置为Optionals
-		setOptionalsForAll: true, //是否将所有类型都设置为Optionals
+		setOptionalsForAll: false, //是否将所有类型都设置为Optionals
 		createdInfo: { //创建信息
 			projectName: "LSWorkshop", //工程名称
 			creator: "dopa", //创建者
