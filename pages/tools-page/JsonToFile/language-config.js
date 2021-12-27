@@ -23,8 +23,10 @@ LanguesConfigArray = [
 			date: "Date"
 		},
 		propertyDefaultValueSetting: { //属性默认值设置；为null时不设置，但是会设置为Optionals类型
-			string: "\"\"", //是否设置string的默认值""
-			number: null, //是否设置数值的默认值
+			// string: "\"\"", //是否设置string的默认值""
+			// number: 0, //是否设置数值的默认值
+			// int: 0,
+			// float: 0.0,
 			// array: "[]"
 		},
 		setGenericOptionals: false, //是否将容器泛型设置为Optionals
