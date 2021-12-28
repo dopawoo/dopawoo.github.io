@@ -35,7 +35,7 @@ LanguesConfigArray = [
 		setGenericOptionals: false, //是否将容器泛型设置为Optionals
 		setOptionalsForAll: false, //是否将所有类型都设置为Optionals
 		createdInfo: { //创建信息
-			projectName: "LSWorkshop", //工程名称
+			projectName: "MiniFun", //工程名称
 			creator: "dopa", //创建者
 			organizationName: "vfun" //组织、企业名称
 		},
@@ -72,7 +72,7 @@ LanguesConfigArray = [
 		pointerTypes: ["NSString", "NSDate", "NSObject", "NSArray", "NSNumber"], //指针类型
 		pointerString: "*" ,//用于指示指针的字符
 		createdInfo: { //创建信息
-			projectName: "LSWorkshop", //工程名称
+			projectName: "MiniFun", //工程名称
 			creator: "dopa", //创建者
 			organizationName: "vfun" //组织、企业名称
 		}
@@ -108,7 +108,7 @@ LanguesConfigArray = [
 		setOptionalsForAll: false, //是否将所有类型都设置为Optionals
 		writeCreatedInfo: false, //是否写入创建信息
 		createdInfo: { //创建信息
-			projectName: "LSWorkshop", //工程名称
+			projectName: "MiniFun", //工程名称
 			creator: "dopa", //创建者
 			organizationName: "vfun" //组织、企业名称
 		}
