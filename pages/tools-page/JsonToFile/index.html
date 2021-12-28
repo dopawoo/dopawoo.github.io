@@ -31,8 +31,20 @@
             <input class="menu_detail" type="text" name="project_creator" placeholder="作者" v-model="creator" v-on:input="infoChanged()">
             <span class="menu_title_spam">组织名称</span>
             <input class="menu_detail" type="text" name="project_name" placeholder="组织、企业名称" v-model="organizationName" v-on:input="infoChanged()">
-		</div>        
+		</div>  
+        <div class="menu_container_sub">
+            <div class="menu_container_check" id="div_propert_optionals">
+            属性默认值为可选<input id="chose_propert_optionals" type="checkbox" checked ='checked' v-on:input="chosePropertyOptionals()"/>
+            </div>
+            <div class="menu_title_spam" id="div_inherit_type">
+            继承于struct<input id="chose_model_type" type="checkbox" v-on:input="choseModelType()"/>
+            </div>
+            <div class="menu_title_spam" id="div_HandyJSON">
+            遵守HandyJSON协议<input id="chose_HandyJSON" type="checkbox" v-on:input="choseHandyJSON()"/>
+            </div>
+        </div>      
 		<div class="content_container">
+
 			<div class="input_container">
 				<span class="input_title_span">需要转换的JSON</span>
 				<textarea class="input_textarea" placeholder="请输入json" v-model="inputJsonText"></textarea>
@@ -48,7 +60,6 @@
 			</div>	
 		</div>
 	</div>
-	
 	
 	<script type="text/javascript">
 		var vm = new Vue({
@@ -141,6 +152,21 @@
                         selectedLangueIndex = selectedIndex
                 		this.reloadOutputData(this.inputJsonText);
                 	}
+
+                    //Swift可选类型
+                    propertOptionals = document.getElementById('div_propert_optionals')
+                    //继承于class
+                    modelType = document.getElementById('div_inherit_type')
+                    div_HandyJSON = document.getElementById('div_HandyJSON')
+                    if (langue == "Swift") {
+                        propertOptionals.style.display="";
+                        modelType.style.display="";
+                        div_HandyJSON.style.display="";
+                    } else {
+                        propertOptionals.style.display="none";
+                        modelType.style.display="none";
+                        div_HandyJSON.style.display="none";
+                    }
                 },
 
                 //修改前缀
@@ -153,7 +179,63 @@
                     usingConfigJSON.createdInfo.creator = creator
                     usingConfigJSON.createdInfo.organizationName = organizationName
                     this.reloadOutputData(this.inputJsonText);
-                } 
+                },
+
+                //Swift属性可选类型设置
+                chosePropertyOptionals: function() {
+                    cb = document.getElementById('chose_propert_optionals')
+                    if (cb.checked) {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.propertyDefaultValueSetting = {};
+                        this.reloadOutputData(this.inputJsonText);
+                    } else {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.propertyDefaultValueSetting = usingConfigJSON.propertyDefaultValueSettingTemplate;
+                        this.reloadOutputData(this.inputJsonText);
+                    }
+                },
+
+                //Swift继承类型
+                choseModelType: function() {
+                    cbHandyJSON = document.getElementById('chose_HandyJSON')
+                    cb = document.getElementById('chose_model_type');
+                    if (cb.checked) {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.modelType = "struct";
+                        usingConfigJSON.conformingToHandyJSON = false
+                        usingConfigJSON.defaultImportText = "import UIKit"
+                        usingConfigJSON.defaultParentClass = ""
+                        cbHandyJSON.checked = false
+                        this.reloadOutputData(this.inputJsonText);
+                    } else {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.modelType = "class";
+                        this.reloadOutputData(this.inputJsonText);
+                    }
+                },
+
+                //是否遵守HandyJSON协议
+                choseHandyJSON: function() {
+                    cbModelType = document.getElementById('chose_model_type');
+                    cb = document.getElementById('chose_HandyJSON')
+                    if (cb.checked) {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.conformingToHandyJSON = true
+                        usingConfigJSON.defaultImportText = "import HandyJSON"
+                        usingConfigJSON.defaultParentClass = "NSObject"
+                        usingConfigJSON.modelType = "class";
+                        cbModelType.checked = false
+                        this.reloadOutputData(this.inputJsonText);
+                    } else {
+                        usingConfigJSON = LanguesConfigArray[selectedLangueIndex];
+                        usingConfigJSON.conformingToHandyJSON = false
+                        usingConfigJSON.defaultImportText = "import UIKit"
+                        usingConfigJSON.defaultParentClass = ""
+                        this.reloadOutputData(this.inputJsonText);
+                    }
+                }
+
+                
         	}
 		});
 	</script>

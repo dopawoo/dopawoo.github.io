@@ -11,7 +11,12 @@ WPFileInfoMetaHandler.prototype.getFileInfoArrayForSwift = function() {
 	var fileNeta = new WPFileInfoMeta(this.modelInfoMeta);
 	fileNeta.extensionName = "swift";
 	fileNeta.importFileText = usingConfigJSON.defaultImportText ? usingConfigJSON.defaultImportText : "";
-	fileNeta.classFooter = "}";
+
+	if (usingConfigJSON.conformingToHandyJSON) {
+		fileNeta.classFooter = "\n    override required init() {}\n}"
+	} else {
+		fileNeta.classFooter = "}";
+	}
 
 	this.fileMetaUpdateClassNameForSwift(fileNeta);
 
@@ -47,9 +52,12 @@ WPFileInfoMetaHandler.prototype.fileMetaUpdateClassNameForSwift = function(fileM
 
 	var parentClassName = usingConfigJSON.defaultParentClass ? usingConfigJSON.defaultParentClass : "";
 	fileMeta.createdInfoText = this.getCreatedInfoTextForSwift(fileMeta.extensionName);
-	var parentClassNameText = parentClassName.length > 0 ? (" : " + parentClassName) : "";
-	fileMeta.classHeader = "class " + fileMeta.className + parentClassNameText + " {";
-
+	var parentClassNameText = parentClassName.length > 0 ? (": " + parentClassName) : "";
+	if (usingConfigJSON.conformingToHandyJSON) {
+		fileMeta.classHeader = usingConfigJSON.modelType + " " + fileMeta.className + parentClassNameText + ", HandyJSON" + " {";
+	} else {
+		fileMeta.classHeader = usingConfigJSON.modelType + " " + fileMeta.className + parentClassNameText + " {";
+	}
 	fileMeta.getDetailInfoForSwift();
 }
 
@@ -119,7 +127,7 @@ WPFileInfoMetaHandler.prototype.getCreatedInfoTextForSwift = function(extensionN
 //------------------------ 文件信息 拓展 ------------------------
 
 WPFileInfoMeta.prototype.getDetailInfoForSwift = function() {
-	this.classCompleteText = this.classHeader + "\n\n" + this.propertyText + "\n\n" + this.classFooter;
+	this.classCompleteText = this.classHeader + "\n" + this.propertyText + "\n" + this.classFooter;
 	this.fileCompleteText = this.createdInfoText + this.importFileText + "\n\n" + this.classCompleteText;
 }
 
@@ -133,6 +141,7 @@ LSModelPropertyInfoMeta.prototype.getDefineContentTextForSwift = function() {
 	//容器泛型
 	var genericOptionalsText = usingConfigJSON.setGenericOptionals ? "?" : ""; //Optionals
 	var genericClassName = (this.isContainer && !this.genericClassName) ? "Any" : this.genericClassName;
+
 	var genericText = this.isContainer ? ("<"+ genericClassName + genericOptionalsText + ">") : "";
 
 	//Optionals类型
@@ -148,6 +157,9 @@ LSModelPropertyInfoMeta.prototype.getDefineContentTextForSwift = function() {
 	var defaultValue = propertyDefaultValueSetting[this.constructorType];
 	if (defaultValue != null) {
 		this.defineContentText = this.defineContentText + " = " + defaultValue + "";
+		if (this.isContainer ) {
+			this.defineContentText = space + this.defineKeyword + " " + this.name + " = " + "[" + genericClassName + "]()";
+		}
 	} else {
 		this.defineContentText = this.defineContentText + "?";
 	}

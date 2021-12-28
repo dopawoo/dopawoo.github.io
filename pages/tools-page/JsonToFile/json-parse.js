@@ -8,7 +8,7 @@ var idCounter = 0;
 
 var selectedLangueIndex = 0;
 
-var modelNameHeader = "LS"; //默认model名字的前边部分
+var modelNameHeader = "MF"; //默认model名字的前边部分
 var modelNameFooter = "Model"; //默认model名字的后边部分
 var projectName = "MiniFun"; //工程名称
 var creator = "dopa"; //创建者

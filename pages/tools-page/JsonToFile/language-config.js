@@ -23,11 +23,14 @@ LanguesConfigArray = [
 			date: "Date"
 		},
 		propertyDefaultValueSetting: { //属性默认值设置；为null时不设置，但是会设置为Optionals类型
-			// string: "\"\"", //是否设置string的默认值""
-			// number: 0, //是否设置数值的默认值
-			// int: 0,
-			// float: 0.0,
-			// array: "[]"
+
+		},
+		propertyDefaultValueSettingTemplate: { //属性默认值设置；为null时不设置，但是会设置为Optionals类型
+			string: "\"\"", //是否设置数值的默认值置string的默认值""
+            number: 0, //是否设置数值的默认值
+            int: 0,
+            float: 0.0,
+            array: "[]"
 		},
 		setGenericOptionals: false, //是否将容器泛型设置为Optionals
 		setOptionalsForAll: false, //是否将所有类型都设置为Optionals
@@ -35,7 +38,9 @@ LanguesConfigArray = [
 			projectName: "LSWorkshop", //工程名称
 			creator: "dopa", //创建者
 			organizationName: "vfun" //组织、企业名称
-		}
+		},
+		modelType: "class",
+		conformingToHandyJSON: false //是否遵守HandyJSON
 	},
 	{
 		langueName: "ObjectiveC",
