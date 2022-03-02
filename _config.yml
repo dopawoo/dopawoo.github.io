@@ -102,9 +102,9 @@ friends: [
     {
         title: "Apple Developer",
         href: "https://developer.apple.com/"
-    }
+    },
     {
-        title: "轮子中心",
+        title: "iOS轮子中心",
         href: "https://github.com/vsouza/awesome-ios"
     }
 ]
