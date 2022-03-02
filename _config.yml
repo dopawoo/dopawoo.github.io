@@ -1,6 +1,6 @@
 # Site settings
-title: 待充电的胖子
-SEOTitle: 待充电的胖子
+title: 平亿近人
+SEOTitle: 平亿近人
 header-img: img/post-bg-desk.jpg
 email: dopa.wu@gmail.com
 description: "Every failure is leading towards success."
@@ -102,5 +102,9 @@ friends: [
     {
         title: "Apple Developer",
         href: "https://developer.apple.com/"
+    }
+    {
+        title: "轮子中心",
+        href: "https://github.com/vsouza/awesome-ios"
     }
 ]
